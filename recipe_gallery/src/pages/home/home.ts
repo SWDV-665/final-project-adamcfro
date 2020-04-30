@@ -10,6 +10,7 @@ export class HomePage {
   title = "Recipe Gallery";
   // array that holds recipes
   recipeList = [];
+  recipeName;
 
   constructor(
     public navCtrl: NavController,
