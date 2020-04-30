@@ -6,7 +6,9 @@ import { NavController, AlertController } from "ionic-angular";
   templateUrl: "home.html",
 })
 export class HomePage {
+  // title of app
   title = "Recipe Gallery";
+  // array that holds recipes
   recipeList = [];
 
   constructor(
@@ -14,25 +16,54 @@ export class HomePage {
     public alertCtrl: AlertController
   ) {}
 
+  /**
+   * method for creating and adding recipes
+   */
   addRecipe() {
+    // if length of input is at least 1
     if (this.recipeName.length > 0) {
-      let task = this.recipeName;
-      this.recipeList.push(task);
+      // create variable for new recipe
+      let recipe = this.recipeName;
+      // push recipe to array
+      this.recipeList.push(recipe);
+      // clear input
       this.recipeName = "";
     }
   }
 
+  /**
+   * method for deleting existing recipes
+   * @param index provides index of recipe item
+   */
   deleteRecipe(index) {
+    // remove item from index
     this.recipeList.splice(index, 1);
   }
 
+  /**
+   * method for updating existing recipes
+   * @param index provides index of recipe item
+   */
   updateRecipe(index) {
+    // create alert to update recipe
     let alert = this.alertCtrl.create({
+      // title for alert
       title: "Update Recipe?",
+      // message for alert
       message: "Type in your new recipe to update.",
-      inputs: [{ name: "editRecipe", placeholder: "Recipe" }],
+      // inputs for alert
+      inputs: [
+        {
+          name: "editRecipe",
+          // placeholder for alert
+          placeholder: "Recipe",
+        },
+      ],
+      // buttons for alert
       buttons: [
+        // cancel button
         { text: "Cancel", role: "cancel" },
+        // update button
         {
           text: "Update",
           handler: (data) => {
@@ -41,6 +72,7 @@ export class HomePage {
         },
       ],
     });
+    // show alert
     alert.present();
   }
 }

@@ -1,9 +1,11 @@
+<!-- header and title -->
 <ion-header>
   <ion-navbar>
     <ion-title>{{ title }}</ion-title>
   </ion-navbar>
 </ion-header>
 
+<!-- input for recipe -->
 <ion-content padding>
   <ion-item>
     <ion-input
@@ -12,6 +14,7 @@
       placeholder="Enter recipe name"
     ></ion-input>
     <div class="item-note" item-end>
+      <!-- button to submit recipe -->
       <button ion-button (click)="addRecipe()">
         <ion-icon name="add"></ion-icon>
       </button>
@@ -20,12 +23,15 @@
 
   <div padding>
     <ion-list>
+      <!-- loop through recipes -->
       <ion-item *ngFor="let recipe of recipeList; let i = index">
         {{recipe}}
         <div class="item-note" item-end>
+          <!-- button to update recipe -->
           <button ion-button clear (click)="updateRecipe(i)">
             <ion-icon name="create"></ion-icon>
           </button>
+          <!-- button to delete recipe -->
           <button ion-button clear (click)="deleteRecipe(i)">
             <ion-icon name="trash"></ion-icon>
           </button>
