@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-input
+      type="text"
+      [(ngModel)]="recipeName"
+      placeholder="Enter recipe name"
+    ></ion-input>
+    <div class="item-note" item-end>
+      <button ion-button (click)="addRecipe()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </div>
+  </ion-item>
+
+  <div padding>
+    <ion-list>
+      <ion-item *ngFor="let recipe of recipeList; let i = index">
+        {{recipe}}
+        <div class="item-note" item-end>
+          <button ion-button clear (click)="updateRecipe(i)">
+            <ion-icon name="create"></ion-icon>
+          </button>
+          <button ion-button clear (click)="deleteRecipe(i)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
