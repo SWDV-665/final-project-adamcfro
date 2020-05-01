@@ -35,6 +35,12 @@
           <button ion-button clear (click)="deleteRecipe(i)">
             <ion-icon name="trash"></ion-icon>
           </button>
+          <!-- button to take picture -->
+          <button ion-button clear (click)="takePhoto()">
+            <ion-icon name="camera"></ion-icon>
+          </button>
+          <!-- display image -->
+          <p><img src="{{ myphoto }}" /></p>
         </div>
       </ion-item>
     </ion-list>

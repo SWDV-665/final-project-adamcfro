@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { NavController, AlertController } from "ionic-angular";
+import { Camera, CameraOptions } from "@ionic-native/camera";
 
 @Component({
   selector: "page-home",
@@ -11,10 +12,12 @@ export class HomePage {
   // array that holds recipes
   recipeList = [];
   recipeName;
+  myphoto: any;
 
   constructor(
     public navCtrl: NavController,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    private camera: Camera
   ) {}
 
   /**
@@ -75,5 +78,24 @@ export class HomePage {
     });
     // show alert
     alert.present();
+  }
+  takePhoto() {
+    const options: CameraOptions = {
+      quality: 70,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+    };
+
+    this.camera.getPicture(options).then(
+      (imageData) => {
+        // imageData is either a base64 encoded string or a file URI
+        // If it's base64 (DATA_URL):
+        this.myphoto = "data:image/jpeg;base64," + imageData;
+      },
+      (err) => {
+        // Handle error
+      }
+    );
   }
 }
