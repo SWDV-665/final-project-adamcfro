@@ -24,11 +24,11 @@ export class HomePage {
    * method for creating and adding recipes
    */
   addRecipe() {
-    // create variable for new recipe
+    // create variable and string for new recipe
     let newRecipe = `Recipe Name: ${this.recipe.name} -- Ingredients: ${this.recipe.ingredients} -- Directions: ${this.recipe.directions}`;
     // push recipe to array
     this.recipeList.push(newRecipe);
-    // clear input
+    // clear inputs
     this.recipe.name = "";
     this.recipe.ingredients = "";
     this.recipe.directions = "";
@@ -39,7 +39,7 @@ export class HomePage {
    * @param index provides index of recipe item
    */
   deleteRecipe(index) {
-    // remove item from index
+    // remove item at index n
     this.recipeList.splice(index, 1);
   }
 
@@ -54,11 +54,10 @@ export class HomePage {
       title: "Update Recipe?",
       // message for alert
       message: "Type in your new recipe to update.",
-      // inputs for alert
+      // inputs for updating recipe
       inputs: [
         {
           name: "editRecipe",
-          // placeholder for alert
           placeholder: "Recipe",
         },
         {
@@ -88,6 +87,9 @@ export class HomePage {
     // show alert
     alert.present();
   }
+  /**
+   * method for taking photo using Ionic Cordova Native Plugin
+   */
   takePhoto() {
     const options: CameraOptions = {
       quality: 70,

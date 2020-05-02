@@ -5,13 +5,16 @@
   </ion-navbar>
 </ion-header>
 
-<!-- input for recipe -->
+<!-- form for recipe -->
 <ion-content padding>
+  <!-- form submit and add recipe -->
   <form (ngSubmit)="addRecipe()">
+    <!-- recipe name input -->
     <ion-item>
       <ion-label>Recipe Name</ion-label>
       <ion-input type="text" [(ngModel)]="recipe.name" name="name"></ion-input>
     </ion-item>
+    <!-- ingredients input -->
     <ion-item>
       <ion-label>Ingredients</ion-label>
       <ion-input
@@ -20,6 +23,7 @@
         name="ingredients"
       ></ion-input>
     </ion-item>
+    <!-- directions input -->
     <ion-item>
       <ion-label>Directions</ion-label>
       <ion-input
@@ -28,10 +32,11 @@
         name="directions"
       ></ion-input>
     </ion-item>
-
+    <!-- submit button -->
     <button ion-button type="submit" block>Add Recipe</button>
   </form>
 
+  <!-- Display recipes -->
   <div padding>
     <ion-list>
       <!-- loop through recipes -->
