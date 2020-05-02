@@ -11,8 +11,8 @@ export class HomePage {
   title = "Recipe Gallery";
   // array that holds recipes
   recipeList = [];
-  recipeName;
   myphoto: any;
+  recipe: any = {};
 
   constructor(
     public navCtrl: NavController,
@@ -24,15 +24,14 @@ export class HomePage {
    * method for creating and adding recipes
    */
   addRecipe() {
-    // if length of input is at least 1
-    if (this.recipeName.length > 0) {
-      // create variable for new recipe
-      let recipe = this.recipeName;
-      // push recipe to array
-      this.recipeList.push(recipe);
-      // clear input
-      this.recipeName = "";
-    }
+    // create variable for new recipe
+    let newRecipe = `Recipe Name: ${this.recipe.name} -- Ingredients: ${this.recipe.ingredients} -- Directions: ${this.recipe.directions}`;
+    // push recipe to array
+    this.recipeList.push(newRecipe);
+    // clear input
+    this.recipe.name = "";
+    this.recipe.ingredients = "";
+    this.recipe.directions = "";
   }
 
   /**
@@ -62,6 +61,14 @@ export class HomePage {
           // placeholder for alert
           placeholder: "Recipe",
         },
+        {
+          name: "editIngredients",
+          placeholder: "Ingredients",
+        },
+        {
+          name: "editDirections",
+          placeholder: "Directions",
+        },
       ],
       // buttons for alert
       buttons: [
@@ -71,7 +78,9 @@ export class HomePage {
         {
           text: "Update",
           handler: (data) => {
-            this.recipeList[index] = data.editRecipe;
+            this.recipeList[
+              index
+            ] = `Recipe Name: ${data.editRecipe} -- Ingredients: ${data.editIngredients} -- Directions: ${data.editDirections}`;
           },
         },
       ],

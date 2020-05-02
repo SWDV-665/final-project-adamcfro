@@ -7,19 +7,30 @@
 
 <!-- input for recipe -->
 <ion-content padding>
-  <ion-item>
-    <ion-input
-      type="text"
-      [(ngModel)]="recipeName"
-      placeholder="Enter recipe name"
-    ></ion-input>
-    <div class="item-note" item-end>
-      <!-- button to submit recipe -->
-      <button ion-button (click)="addRecipe()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </div>
-  </ion-item>
+  <form (ngSubmit)="addRecipe()">
+    <ion-item>
+      <ion-label>Recipe Name</ion-label>
+      <ion-input type="text" [(ngModel)]="recipe.name" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Ingredients</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="recipe.ingredients"
+        name="ingredients"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Directions</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="recipe.directions"
+        name="directions"
+      ></ion-input>
+    </ion-item>
+
+    <button ion-button type="submit" block>Add Recipe</button>
+  </form>
 
   <div padding>
     <ion-list>
