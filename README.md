@@ -4,6 +4,6 @@ An application that allows you to create your favorite recipes!
 
 
 ### Run:
-Download zip into new directory. Then run `npm i` to install dependencies
+Download ZIP into new directory. Then run `npm i` to install dependencies
 
-Start with `ionic serve` or `ionic cordova run browser`. Must be in `groceries` directory.
+Start application with `ionic serve` or `ionic cordova run browser`. Must be in `groceries` directory.
