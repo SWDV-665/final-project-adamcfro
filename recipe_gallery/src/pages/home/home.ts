@@ -73,7 +73,7 @@ export class HomePage {
       buttons: [
         // cancel button
         { text: "Cancel", role: "cancel" },
-        // update button
+        // update button that replaces object with new object
         {
           text: "Update",
           handler: (data) => {
@@ -92,12 +92,14 @@ export class HomePage {
    */
   takePhoto() {
     const options: CameraOptions = {
+      // picture quality
       quality: 70,
+      // type setting
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
     };
-
+    // take picture or video
     this.camera.getPicture(options).then(
       (imageData) => {
         // imageData is either a base64 encoded string or a file URI
